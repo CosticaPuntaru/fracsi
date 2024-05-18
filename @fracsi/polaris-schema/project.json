@@ -1,0 +1,9 @@
+{
+  "name": "@fracsi/polaris-schema",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "@fracsi/polaris-schema/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project @fracsi/polaris-schema --web",
+  "targets": {}
+}
