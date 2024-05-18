@@ -17,15 +17,6 @@ export default defineConfig({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
-    copy({
-      targets: [
-        {
-          src: path.resolve(__dirname, 'package.json'),
-          dest: '../../dist/@fracsi/polaris-schema'
-        }
-      ],
-      hook: 'writeBundle' // notice this
-    })
   ],
 
   // Uncomment this if you are using workers.
@@ -36,7 +27,7 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: '../../dist/@fracsi/polaris-schema',
+    outDir: './dist',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,

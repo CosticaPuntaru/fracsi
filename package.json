@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve demo",
-    "build:demo": "nx build demo --buildLibsFromSource --prod --baseHref=/http://CosticaPuntaru.github.io/fracsi/"
+    "build:demo": "nx build demo --prod"
   },
   "private": true,
   "dependencies": {

@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   root: __dirname,
@@ -15,16 +14,7 @@ export default defineConfig({
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-    }),
-    copy({
-      targets: [
-        {
-          src: path.resolve(__dirname, 'package.json'),
-          dest: '../../dist/@fracsi/tanstack-schema'
-        }
-      ],
-      hook: 'writeBundle' // notice this
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json')
     })
   ],
 
@@ -36,10 +26,10 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: '../../dist/@fracsi/tanstack-schema',
+    outDir: './dist',
     reportCompressedSize: true,
     commonjsOptions: {
-      transformMixedEsModules: true,
+      transformMixedEsModules: true
     },
     lib: {
       // Could also be a dictionary or array of multiple entry points.
@@ -48,18 +38,18 @@ export default defineConfig({
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
-      formats: ['es', 'cjs'],
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
-    },
+      external: ['react', 'react-dom', 'react/jsx-runtime']
+    }
   },
 
   test: {
     globals: true,
     cache: {
-      dir: '../../node_modules/.vitest/@fracsi/tanstack-schema',
+      dir: '../../node_modules/.vitest/@fracsi/tanstack-schema'
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
@@ -67,7 +57,7 @@ export default defineConfig({
     reporters: ['default'],
     coverage: {
       reportsDirectory: '../../coverage/@fracsi/tanstack-schema',
-      provider: 'v8',
-    },
-  },
+      provider: 'v8'
+    }
+  }
 });

@@ -1,12 +1,12 @@
 {
   "name": "@fracsi/tanstack-schema",
   "version": "0.0.1",
-  "main": "./index.js",
-  "types": "./index.d.tsx",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.tsx",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "dependencies": {
