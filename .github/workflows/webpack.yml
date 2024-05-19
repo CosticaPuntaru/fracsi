@@ -27,10 +27,6 @@ jobs:
           pnpm install
           npm run build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist/demo # The folder the action should deploy.
-          clean: true # Automatically remove old files from the deployment branch
-          repository-name: 'CosticaPuntaru/fracsi' # Replace with your username and repository
-          token: ${{ secrets.GITHUB_TOKEN }} # A deployment token. You can use `${{ secrets.GITHUB_TOKEN }}` for this.
+          folder: dist/demo
