@@ -1,16 +1,16 @@
-import React from 'react';
-import { createFormFromSchema, FieldTypesMap, FormSchema, JsonFieldConfigTanFieldProps } from "@fracsi/tanstack-schema";
+import React, { useEffect, useState } from 'react';
+import { createFormFromSchema, FieldTypesMap, FormSchema, JsonFieldConfigTanFieldProps } from '@fracsi/tanstack-schema';
 
 const fieldTypeMap = {
   'input': {
-    render: function (
+    render: function(
       {
         config: {
           label,
           type = 'text',
-          placeholder,
+          placeholder
         },
-        tanField: { name, handleChange, state },
+        tanField: { name, handleChange, state }
       }: JsonFieldConfigTanFieldProps<{ label: string, placeholder?: string, type?: string }>
     ) {
       return (
@@ -42,41 +42,49 @@ const fieldTypeMap = {
           )}
 
         </div>
-      )
+      );
     }
-  },
-} satisfies FieldTypesMap
+  }
+} satisfies FieldTypesMap;
 
 type CustomeSchema = FormSchema<typeof fieldTypeMap>
-const CustomForm = createFormFromSchema({ fieldTypes: fieldTypeMap })
+const CustomForm = createFormFromSchema({ fieldTypes: fieldTypeMap });
 
 
 const registerSchema: CustomeSchema = {
   email: {
     fieldType: 'input',
-    label: "Email",
-    type: 'email',
+    label: 'Email',
+    type: 'email'
   },
   password: {
     fieldType: 'input',
-    label: "Password",
+    label: 'Password',
     type: 'password'
   },
   confirmPassword: {
     fieldType: 'input',
-    label: "Confirm Password",
+    label: 'Confirm Password',
     type: 'password'
   }
-}
+};
 
 export function VanillaForm() {
+  const [schemaStr, setStrSchema] = useState(() => JSON.stringify(registerSchema, null, 2));
+  const [schema, setSchema] = useState(registerSchema);
+  useEffect(() => {
+    try {
+      setSchema(JSON.parse(schemaStr));
+    } catch (e) { /* empty */ }
+  }, [schemaStr]);
   return (
     <div className="App">
       <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <CustomForm schema={registerSchema}>
+        <textarea value={schemaStr} onChange={(e) => setStrSchema(e.target.value)} />
+        <CustomForm schema={schema}>
           <button type="submit">Register</button>
         </CustomForm>
       </header>
