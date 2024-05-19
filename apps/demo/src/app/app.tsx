@@ -18,15 +18,15 @@ export function App() {
       </div>
       <Routes>
         <Route
-          path="/"
+          path="/fracsi"
           Component={Index}
         />
         <Route
-          path="/vanilla-form"
+          path="/fracsi/vanilla-form"
           Component={VanillaForm}
         />
         <Route
-          path="/polaris"
+          path="/fracsi/polaris"
           Component={PolarisPage}
         />
       </Routes>
