@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve demo",
-    "build:demo": "nx build demo --prod --verbose"
+    "build": "npm run build:tanstack-schema && npm run build:polaris-schema && npm run build:demo",
+    "build:tanstack-schema": "nx build  @fracsi/tanstack-schema --no-cloud --prod --verbose",
+    "build:polaris-schema": "nx build  @fracsi/polaris-schema --no-cloud --prod --verbose",
+    "build:demo": "nx build  demo --no-cloud --prod --verbose"
   },
   "private": true,
   "dependencies": {
