@@ -23,10 +23,11 @@ export default defineConfig({
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
   // },
-
+  base: '/fracsi/',
   build: {
     outDir: '../../dist/demo',
     reportCompressedSize: true,
+
     commonjsOptions: {
       transformMixedEsModules: true,
     },
