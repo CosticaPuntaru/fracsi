@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve demo",
-    "build:demo": "nx build demo --prod"
+    "build:demo": "nx build demo --prod --verbose"
   },
   "private": true,
   "dependencies": {
