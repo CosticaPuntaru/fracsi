@@ -10,7 +10,7 @@
     }
   },
   "dependencies": {
-    "@fracsi/tanstack-schema": "*",
+    "@fracsi/tanstack-schema": "workspace:*",
     "@shopify/polaris": "^13.4.0"
   }
 }

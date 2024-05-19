@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@fracsi/tanstack-schema": "workspace:*",
+    "@fracsi/polaris-schema": "workspace:*",
     "@shopify/polaris": "^13.4.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
